@@ -27,4 +27,4 @@ void adde(int from, int to, int wei)
 	gbegin[from] = gm;
 }
 
-#endif
+#endif // _GRAPH_LLIST_HPP
