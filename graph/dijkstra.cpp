@@ -22,22 +22,22 @@ std::vector<int> /* long */ dijkstra(int s, int t)
 	dist[s] = 0;
 	pq.emplace(0L, s);
 	while (!pq.empty()) {
-		int node;
-		long cdst;
-		std::tie(cdst, node) = pq.top();
+		int u;
+		long du;
+		std::tie(du, u) = pq.top();
 		pq.pop();
-		if (vis[node])
+		if (vis[u])
 			continue;
-		vis[node] = true;
-		if (node == t)
+		vis[u] = true;
+		if (u == t)
 			break;
-		for (int e = gbegin[node]; e; e = gedges[e].next) {
-			int to = gedges[e].to;
-			long wei = gedges[e].wei;
-			if (!vis[to] && (!~dist[to] || dist[to] > cdst + wei)) {
-				prd[to] = node;
-				dist[to] = cdst + wei;
-				pq.emplace(dist[to], to);
+		for (int e = gbegin[u]; e; e = gedges[e].next) {
+			int v = gedges[e].to;
+			long w = gedges[e].wei;
+			if (!vis[v] && (dist[v] == -1 || dist[v] > du + w)) {
+				prd[v] = u;
+				dist[v] = du + w;
+				pq.emplace(dist[v], v);
 			}
 		}
 	}
