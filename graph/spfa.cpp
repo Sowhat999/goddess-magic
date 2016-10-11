@@ -42,7 +42,7 @@ std::vector<int> /* long */ spfa(int s, int t)
 		}
 	}
 	// return dist[t];
-	if (!~dist[t])
+	if (dist[t] == -1)
 		return {};
 	std::vector<int> path;
 	int node = t;
