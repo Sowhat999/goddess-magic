@@ -7,12 +7,12 @@
 
 #include "graph_llist.hpp"
 
-long dist[N];	// Distance
+BigInt dist[N];	// Distance
 int prd[N];	// Pred
 std::bitset<N> inq;	// In queue
 
 // Return path (empty) or length of path (-1).
-std::vector<int> /* long */ spfa(int s, int t)
+std::vector<int> /* BigInt */ spfa(int s, int t)
 {
 	std::memset(dist, -1, sizeof(dist));
 	std::memset(prd, -1, sizeof(prd));
@@ -26,8 +26,8 @@ std::vector<int> /* long */ spfa(int s, int t)
 		inq[u] = false;
 		for (int e = gbegin[u]; e; e = gedges[e].next) {
 			int v = gedges[e].to;
-			long w = gedges[e].wei;
-			long du = dist[u];
+			BigInt w = gedges[e].wei;
+			BigInt du = dist[u];
 			if (dist[v] == -1 || dist[v] > du + w) {
 				prd[v] = u;
 				dist[v] = du + w;

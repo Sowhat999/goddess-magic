@@ -4,10 +4,12 @@
 constexpr int N = 1000;
 constexpr int M = 3000 * 2;
 
+using BigInt = long long;
+
 struct Edge {
 	int from;
 	int to;
-	long wei;
+	BigInt wei;
 	int next;
 } gedges[M]; // 1-based
 
